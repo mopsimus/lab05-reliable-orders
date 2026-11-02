@@ -29,6 +29,16 @@ public class Application {
         System.out.println("Сценарий: " + title);
         // TODO 7: выполните action.run() внутри try; обработайте два типа исключений.
         // Успех: "Операция выполнена". Ошибки: префикс из методички + ex.getMessage().
-        throw new UnsupportedOperationException("TODO: runScenario");
+        try {
+            action.run();
+
+            System.out.println("Операция выполнена");
+
+        } catch (ValidationException ex) {
+            System.out.println("Ошибка данных: " + ex.getMessage());
+
+        } catch (OrderOperationException ex) {
+            System.out.println("Операция отклонена: " + ex.getMessage());
+        }
     }
 }
